@@ -40,12 +40,7 @@ func main() {
 
 	}
 
-	health := func (w http.ResponseWriter, r *http.Request) {
-		
-	}
 	http.HandleFunc("/", h1)
 	http.HandleFunc("/add-team/", h2)
-	http.HandleFunc("/health/", health)
-
 	log.Fatal(http.ListenAndServe(":5000", nil))
 }
