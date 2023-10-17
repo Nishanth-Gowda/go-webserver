@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: f1-htmx-service
+  labels:
+    app: f1app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: f1app  # This label should match the one in template.metadata.labels
+  template:
+    metadata:
+      labels:
+        app: f1app  # This label should match the one in selector.matchLabels
+    spec:
+      containers:
+      - name: f1-htmx
+        image: nishanthvish/f1-htmx
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
